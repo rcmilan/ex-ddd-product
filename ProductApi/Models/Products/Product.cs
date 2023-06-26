@@ -6,5 +6,5 @@ namespace ProductApi.Models.Products;
 
 public abstract record Product(
     ProductType Category,
-    Pricing Pricing,
+    ICollection<Pricing> Prices,
     Recurrency Recurrency);
