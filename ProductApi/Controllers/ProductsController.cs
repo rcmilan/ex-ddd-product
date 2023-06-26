@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProductApi.DataTransferObjects;
 using ProductApi.Models.Enum;
 using ProductApi.Models.Offers;
 using ProductApi.Models.Prices;
@@ -19,6 +20,16 @@ namespace ProductApi.Controllers
             Product p3 = new InfoProduct(ProductType.OnlineCourse, new[] { new FixedPrice(300) }, new Recurrent(Frequency.Monthly));
 
             var result = new ProductBundle().Concat(new[] { p1, p2, p3 });
+
+            return Ok(result);
+        }
+
+        [HttpGet("DTO")]
+        public IActionResult GetDto()
+        {
+            Product p1 = new InfoProduct(ProductType.OnlineCourse, new[] { new FixedPrice(1000) }, new Unique());
+
+            UniqueOfferDto result = p1;
 
             return Ok(result);
         }
