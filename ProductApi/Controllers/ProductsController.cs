@@ -32,7 +32,7 @@ namespace ProductApi.Controllers
             };
 
             Product p1 = new InfoProduct(ProductType.OnlineCourse, fixed1, new Unique());
-            Product p2 = new MaterialProduct(ProductType.Accommodation, priceRanges, new Unique());
+            Product p2 = new MaterialProduct(ProductType.Accommodation, 1, priceRanges, new Unique());
             Product p3 = new InfoProduct(ProductType.OnlineCourse, fixed2, new Recurrent(Frequency.Monthly));
 
             var result = new ProductBundle().Concat(new[] { p1, p2, p3 });
