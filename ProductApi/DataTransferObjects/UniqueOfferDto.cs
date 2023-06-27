@@ -8,7 +8,7 @@ namespace ProductApi.DataTransferObjects
 
         public static implicit operator UniqueOfferDto(Product p) => new()
         {
-            ValueInCents = p.Prices.First().ValueInCents,
+            ValueInCents = 0
         };
     }
 }

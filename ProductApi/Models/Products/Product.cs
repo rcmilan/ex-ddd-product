@@ -3,6 +3,4 @@ using ProductApi.Models.Recurrencies;
 
 namespace ProductApi.Models.Products;
 
-public abstract record Product(
-    PricingCollection<Pricing> Prices,
-    Recurrency Recurrency);
+public abstract record Product(Pricing Prices, Recurrency Recurrency);

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProductApi.DataTransferObjects;
-using ProductApi.Models.Enum;
 using ProductApi.Models.Offers;
 using ProductApi.Models.Prices;
 using ProductApi.Models.Products;
@@ -15,25 +14,15 @@ namespace ProductApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var fixed1 = new PricingCollection<Pricing>
-            {
-                new FixedPrice(1000)
-            };
-
-            var fixed2 = new PricingCollection<Pricing>
-            {
-                new FixedPrice(00)
-            };
-
             var priceRanges = new PricingCollection<Pricing>
             {
                 new PricingRange(2, 10, 500),
                 new PricingRange(11, 15, 400)
             };
 
-            Product p1 = new InfoProduct(fixed1, new Unique());
+            Product p1 = new InfoProduct(new FixedPrice(1000), new Unique());
             Product p2 = new MaterialProduct(priceRanges, new Unique());
-            Product p3 = new InfoProduct(fixed2, new Recurrent(Frequency.Monthly));
+            Product p3 = new InfoProduct(new FixedPrice(100), new Recurrent(Frequency.Monthly));
 
             var result = new ProductBundle().Concat(new[] { p1, p2, p3 });
 
@@ -43,9 +32,7 @@ namespace ProductApi.Controllers
         [HttpGet("DTO")]
         public IActionResult GetDto()
         {
-            Product p1 = new InfoProduct(
-                new PricingCollection<Pricing> { new FixedPrice(1000) },
-                new Unique());
+            Product p1 = new InfoProduct(new PricingCollection<Pricing> { new FixedPrice(1000) }, new Unique());
 
             UniqueOfferDto result = p1;
 

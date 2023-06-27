@@ -3,13 +3,13 @@ using System.Collections.ObjectModel;
 
 namespace ProductApi.Models.Prices
 {
-    public class PricingCollection<T> : ICollection<T> where T : Pricing
+    public record PricingCollection<T> : Pricing, ICollection<T> where T : Pricing
     {
         public int Count => Values.Count;
 
         public bool IsReadOnly => Values.IsReadOnly;
 
-        private ICollection<T> Values { get; set; } = new Collection<T>();
+        private readonly ICollection<T> Values = new Collection<T>();
 
         public void Add(T item)
         {

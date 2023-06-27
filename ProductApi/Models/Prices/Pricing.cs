@@ -1,3 +1,3 @@
 ﻿namespace ProductApi.Models.Prices;
 
-public abstract record Pricing(int ValueInCents);
+public abstract record Pricing;

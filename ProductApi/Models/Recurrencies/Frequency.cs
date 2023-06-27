@@ -1,4 +1,4 @@
-﻿namespace ProductApi.Models.Enum
+﻿namespace ProductApi.Models.Recurrencies
 {
     public enum Frequency
     {
