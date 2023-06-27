@@ -31,9 +31,9 @@ namespace ProductApi.Controllers
                 new PricingRange(11, 15, 400)
             };
 
-            Product p1 = new InfoProduct(ProductType.OnlineCourse, fixed1, new Unique());
-            Product p2 = new MaterialProduct(ProductType.Accommodation, 1, priceRanges, new Unique());
-            Product p3 = new InfoProduct(ProductType.OnlineCourse, fixed2, new Recurrent(Frequency.Monthly));
+            Product p1 = new InfoProduct(fixed1, new Unique());
+            Product p2 = new MaterialProduct(priceRanges, new Unique());
+            Product p3 = new InfoProduct(fixed2, new Recurrent(Frequency.Monthly));
 
             var result = new ProductBundle().Concat(new[] { p1, p2, p3 });
 
@@ -44,7 +44,6 @@ namespace ProductApi.Controllers
         public IActionResult GetDto()
         {
             Product p1 = new InfoProduct(
-                ProductType.OnlineCourse,
                 new PricingCollection<Pricing> { new FixedPrice(1000) },
                 new Unique());
 

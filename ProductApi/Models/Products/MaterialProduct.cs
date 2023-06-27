@@ -4,8 +4,4 @@ using ProductApi.Models.Recurrencies;
 
 namespace ProductApi.Models.Products;
 
-public record MaterialProduct(
-    ProductType Category,
-    int Quantity,
-    PricingCollection<Pricing> Prices,
-    Recurrency Recurrency) : Product(Category, Prices, Recurrency);
+public record MaterialProduct(PricingCollection<Pricing> Prices, Recurrency Recurrency) : Product(Prices, Recurrency);
