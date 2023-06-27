@@ -15,17 +15,17 @@ namespace ProductApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var fixed1 = new Range<Pricing>
+            var fixed1 = new PricingCollection<Pricing>
             {
                 new FixedPrice(1000)
             };
 
-            var fixed2 = new Range<Pricing>
+            var fixed2 = new PricingCollection<Pricing>
             {
                 new FixedPrice(00)
             };
 
-            var priceRanges = new Range<Pricing>
+            var priceRanges = new PricingCollection<Pricing>
             {
                 new PricingRange(2, 10, 500),
                 new PricingRange(11, 15, 400)
@@ -45,7 +45,7 @@ namespace ProductApi.Controllers
         {
             Product p1 = new InfoProduct(
                 ProductType.OnlineCourse,
-                new Range<Pricing> { new FixedPrice(1000) },
+                new PricingCollection<Pricing> { new FixedPrice(1000) },
                 new Unique());
 
             UniqueOfferDto result = p1;

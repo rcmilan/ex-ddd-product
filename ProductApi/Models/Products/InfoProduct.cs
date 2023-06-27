@@ -6,5 +6,5 @@ namespace ProductApi.Models.Products;
 
 public record InfoProduct(
     ProductType Category,
-    Range<Pricing> Prices,
+    PricingCollection<Pricing> Prices,
     Recurrency Recurrency) : Product(Category, Prices, Recurrency);

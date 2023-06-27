@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ProductApi.Models.Prices
 {
-    public class Range<T> : ICollection<T> where T : Pricing
+    public class PricingCollection<T> : ICollection<T> where T : Pricing
     {
         public int Count => Values.Count;
 
