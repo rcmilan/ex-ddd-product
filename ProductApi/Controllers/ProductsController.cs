@@ -16,7 +16,7 @@ namespace ProductApi.Controllers
         public IActionResult Get()
         {
             Product p1 = new InfoProduct(ProductType.OnlineCourse, new[] { new FixedPrice(1000) }, new Unique());
-            Product p2 = new MaterialProduct(ProductType.Accommodation, new[] { new PriceRange<int>(2, 10, 500), new PriceRange<int>(11, 15, 400) }, new Unique());
+            Product p2 = new MaterialProduct(ProductType.Accommodation, new[] { new PriceRange(2, 10, 500), new PriceRange(11, 15, 400) }, new Unique());
             Product p3 = new InfoProduct(ProductType.OnlineCourse, new[] { new FixedPrice(300) }, new Recurrent(Frequency.Monthly));
 
             var result = new ProductBundle().Concat(new[] { p1, p2, p3 });

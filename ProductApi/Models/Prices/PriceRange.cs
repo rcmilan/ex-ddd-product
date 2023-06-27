@@ -1,3 +1,3 @@
 ﻿namespace ProductApi.Models.Prices;
 
-public record PriceRange<T>(T From, T To, int ValueInCents) : Pricing(ValueInCents);
+public record PriceRange(int From, int To, int ValueInCents) : Pricing(ValueInCents);
