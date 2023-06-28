@@ -1,14 +1,7 @@
-﻿using ProductApi.Models.Products;
-using System.Collections;
+﻿using ProductApi.Models.Offers;
+using ProductApi.Models.Products;
 
-namespace ProductApi.Models.Offers
+namespace ProductApi.Models.Bundles
 {
-    public class ProductBundle : IEnumerable<Product>
-    {
-        private IEnumerable<Product> Products { get; set; } = Enumerable.Empty<Product>();
-
-        public IEnumerator<Product> GetEnumerator() => Products.GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => Products.GetEnumerator();
-    }
+    public record ProductBundle : Bundle<Product>;
 }

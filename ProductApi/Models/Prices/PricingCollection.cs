@@ -3,15 +3,15 @@ using System.Collections.ObjectModel;
 
 namespace ProductApi.Models.Prices
 {
-    public record PricingCollection<T> : Pricing, ICollection<T> where T : Pricing
+    public record PricingCollection : Pricing, ICollection<PricingRange>
     {
         public int Count => Values.Count;
 
         public bool IsReadOnly => Values.IsReadOnly;
 
-        private readonly ICollection<T> Values = new Collection<T>();
+        private readonly ICollection<PricingRange> Values = new Collection<PricingRange>();
 
-        public void Add(T item)
+        public void Add(PricingRange item)
         {
             Values.Add(item);
         }
@@ -21,17 +21,19 @@ namespace ProductApi.Models.Prices
             Values.Clear();
         }
 
-        public bool Contains(T item) => Values.Contains(item);
+        public bool Contains(PricingRange item) => Values.Contains(item);
 
-        public void CopyTo(T[] array, int arrayIndex)
+        public void CopyTo(PricingRange[] array, int arrayIndex)
         {
             Values.CopyTo(array, arrayIndex);
         }
 
-        public IEnumerator<T> GetEnumerator() => Values.GetEnumerator();
+        public IEnumerator<PricingRange> GetEnumerator() => Values.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)Values).GetEnumerator();
 
-        public bool Remove(T item) => Values.Remove(item);
+        public bool Remove(PricingRange item) => Values.Remove(item);
+
+        public PricingRange? FirstInRange(int value) => Values.FirstOrDefault(v => v.From <= value && value <= v.To);
     }
 }
