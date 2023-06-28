@@ -33,9 +33,7 @@ namespace ProductApi.Controllers
         [HttpGet("DTO")]
         public IActionResult GetDto()
         {
-            Product p1 = new InfoProduct(new FixedPrice(1000), new Unique());
-
-            UniqueOfferDto result = p1;
+            UniqueOfferDto result = new InfoProduct(new FixedPrice(1000), new Unique());
 
             return Ok(result);
         }

@@ -1,14 +1,16 @@
-﻿using ProductApi.Models.Products;
+﻿using ProductApi.Models.Prices;
+using ProductApi.Models.Products;
 
 namespace ProductApi.DataTransferObjects
 {
-    public class UniqueOfferDto
+    public record UniqueOfferDto(int ValueInCents = 0)
     {
-        public int ValueInCents { get; set; }
+        public int ValueInCents { get; private set; } = ValueInCents;
 
-        public static implicit operator UniqueOfferDto(Product p) => new()
+        public static implicit operator UniqueOfferDto(Product p) => p.Prices switch
         {
-            ValueInCents = 0
+            FixedPrice fp => new(fp.ValueInCents),
+            _ => new(),
         };
     }
 }
