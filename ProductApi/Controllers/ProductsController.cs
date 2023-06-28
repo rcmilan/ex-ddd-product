@@ -25,7 +25,7 @@ namespace ProductApi.Controllers
             Product p2 = new MaterialProduct(priceRanges, new Unique());
             Product p3 = new InfoProduct(new FixedPrice(100), new Recurrent(Frequency.Monthly));
 
-            Bundle<Product> result = new ProductBundle { p1, p2, p3 };
+            var result = new ProductBundle { p1, p2, p3 };
 
             return Ok(result);
         }
