@@ -3,7 +3,6 @@ using ProductApi.DataTransferObjects;
 using ProductApi.Models.Bundles;
 using ProductApi.Models.Prices;
 using ProductApi.Models.Products;
-using ProductApi.Models.Recurrencies;
 
 namespace ProductApi.Controllers
 {
@@ -20,9 +19,9 @@ namespace ProductApi.Controllers
                 new PricingRange(11, 15, 400)
             };
 
-            Product p1 = new InfoProduct(new FixedPrice(1000), new Unique());
-            Product p2 = new MaterialProduct(priceRanges, new Unique());
-            Product p3 = new InfoProduct(new FixedPrice(100), new Recurrent(Frequency.Monthly));
+            Product p1 = new OnlineCourse(new FixedPrice(1000));
+            Product p2 = new Course(priceRanges);
+            Product p3 = new OnlineCourse(new NoPricing());
 
             var result = new ProductBundle { p1, p2, p3 };
 
@@ -32,7 +31,7 @@ namespace ProductApi.Controllers
         [HttpGet("DTO")]
         public IActionResult GetDto()
         {
-            UniqueOfferDto result = new InfoProduct(new FixedPrice(1000), new Unique());
+            UniqueOfferDto result = new OnlineCourse(new FixedPrice(1000));
 
             return Ok(result);
         }

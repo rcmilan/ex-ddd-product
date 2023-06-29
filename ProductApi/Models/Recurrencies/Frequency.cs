@@ -1,10 +1,9 @@
-﻿namespace ProductApi.Models.Recurrencies
+﻿namespace ProductApi.Models.Recurrencies;
+
+public enum Frequency
 {
-    public enum Frequency
-    {
-        Daily,
-        Weekly,
-        Monthly,
-        Yearly
-    }
+    Daily,
+    Weekly,
+    Monthly,
+    Yearly
 }

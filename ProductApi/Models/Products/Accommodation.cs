@@ -2,4 +2,4 @@
 
 namespace ProductApi.Models.Products;
 
-public abstract record Product(Pricing Prices);
+public record Accommodation(Pricing Prices) : Product(Prices);
