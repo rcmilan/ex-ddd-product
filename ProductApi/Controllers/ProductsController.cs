@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProductApi.DataTransferObjects;
 using ProductApi.Models.Bundles;
-using ProductApi.Models.Offers;
 using ProductApi.Models.Prices;
 using ProductApi.Models.Products;
 using ProductApi.Models.Recurrencies;
