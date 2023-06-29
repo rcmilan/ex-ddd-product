@@ -2,4 +2,4 @@
 
 namespace ProductApi.Models.Products;
 
-public record AdditionalService(Pricing Prices) : Product(Prices);
+public record Additional(Pricing Prices) : Product(Prices);
