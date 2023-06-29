@@ -2,4 +2,4 @@
 
 namespace ProductApi.Models.Products;
 
-public record Lesson(Pricing Prices) : Product(Prices);
+public record LiveLesson(Pricing Prices) : Product(Prices);
