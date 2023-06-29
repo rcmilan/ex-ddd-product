@@ -2,4 +2,9 @@
 
 namespace ProductApi.Models.Products;
 
-public record Accommodation(Pricing Prices) : Product(Prices);
+public record Accommodation : Product
+{
+    public Accommodation(PricingCollection Prices) : base(Prices)
+    {
+    }
+}

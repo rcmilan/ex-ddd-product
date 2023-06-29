@@ -2,4 +2,9 @@
 
 namespace ProductApi.Models.Products;
 
-public record Course(Pricing Prices) : Product(Prices);
+public record Course : Product
+{
+    public Course(PricingCollection Prices) : base(Prices)
+    {
+    }
+}
