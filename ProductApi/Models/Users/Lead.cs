@@ -1,3 +1,3 @@
 ﻿namespace ProductApi.Models.Users;
 
-public record Lead : User;
+public record Lead(string Email) : User;

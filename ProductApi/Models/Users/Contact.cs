@@ -1,3 +1,3 @@
 ﻿namespace ProductApi.Models.Users;
 
-public record Contact : User;
+public record Contact(string Email) : User;

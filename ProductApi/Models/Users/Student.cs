@@ -1,3 +1,3 @@
 ﻿namespace ProductApi.Models.Users;
 
-public record Student : User;
+public record Student(string Email) : User;
